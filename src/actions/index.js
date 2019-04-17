@@ -13,11 +13,11 @@ export const FETCH_CHARACTER_FAILURE = 'FETCH_CHARACTER_FAILURE';
 // remember that now we have controll over our thunk-based action creator
 
 export const getCharacter = () => dispatch => {
-    dispatch({ type: FETCH_CHARACTER_START });
+    dispatch({ type: FETCH_CHARACTER_START })
     axios.get(`https://swapi.co/api/people/`)
         .then(res => dispatch({
             type: FETCH_CHARACTER_SUCCESS,
-            payload: res.data
+            payload: res.data.results
         }))
         .catch(err => dispatch({
             type: FETCH_CHARACTER_FAILURE,
